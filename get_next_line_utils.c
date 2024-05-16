@@ -6,11 +6,18 @@
 /*   By: jlehtone <jlehtone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 11:16:30 by jlehtone          #+#    #+#             */
-/*   Updated: 2024/05/14 13:59:53 by jlehtone         ###   ########.fr       */
+/*   Updated: 2024/05/16 15:04:16 by jlehtone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+char	*free_and_null(char *str)
+{
+	free(str);
+	str = NULL;
+	return (str);
+}
 
 size_t	find_newline(char *pile)
 {
@@ -26,17 +33,17 @@ size_t	find_newline(char *pile)
 	return (index);
 }
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strchr(char *s, int c)
 {
 	char	a;
 
 	a = c;
-	if (s == NULL)
+	if (!s)
 		return (NULL);
 	while (*s != '\0' && *s != a)
 		s++;
 	if (*s == a)
-		return ((char *)s);
+		return (s);
 	return (NULL);
 }
 
